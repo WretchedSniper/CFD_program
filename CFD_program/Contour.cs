@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowAroundCylinder
+namespace CFD_program
 {
     class Contour
     {
@@ -27,7 +27,8 @@ namespace FlowAroundCylinder
             //实际坐标为x→ y↑
             //Nodedata的坐标都是x↓ y→
             //PlotSizeX/Y 按照Nodedata的方向
-            //画图时反着画
+            //GDI+的坐标为x→ y↓
+            //画图时上下反向
             this.Nodedata = Nodedata;
             this.DeltaX = DeltaX;
             this.DeltaY = DeltaY;
@@ -51,8 +52,12 @@ namespace FlowAroundCylinder
         {
             double CurrentValue = Datamin;
             double DeltaValue = (Datamax - Datamin) / (NumOfLine + 1);
+            double DeltaR = 0;
+            double DeltaG = 255 / (NumOfLine - 1);
+            double DeltaB = 0;
             for (int k = 0; k < NumOfLine; ++k)
             {
+                Pen pen = new Pen(Color.FromArgb(255, Convert.ToInt32(k * DeltaG), 0));
                 CurrentValue += DeltaValue;
                 for (int i = 0; i < Nodedata.GetLength(0) - 1; ++i)//节点左上角标号代表一个网格
                     for (int j = 0; j < Nodedata.GetLength(1) - 1; ++j)
@@ -61,67 +66,74 @@ namespace FlowAroundCylinder
                         int UpperRight = Convert.ToInt32(Nodedata[i, j + 1] > CurrentValue);
                         int LowerLeft = Convert.ToInt32(Nodedata[i + 1, j] > CurrentValue);
                         int LowerRight = Convert.ToInt32(Nodedata[i + 1, j + 1] > CurrentValue);
-                        int Cases = UpperLeft << 3 + LowerLeft << 2 + LowerRight << 1 + UpperRight;
+                        int Cases = UpperLeft * 8 + LowerLeft * 4 + LowerRight * 2 + UpperRight;
 
                         float UpperX = Convert.ToSingle(i * DeltaX * ScaleX);
                         float UpperY = Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i, j + 1] - Nodedata[i, j]) + j) * DeltaY * ScaleY);
-
+                        PointF Upper = new PointF(UpperX, UpperY);
                         float LeftX = Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i + 1, j] - Nodedata[i, j]) + i) * DeltaX * ScaleX);
                         float LeftY = Convert.ToSingle(j * DeltaY * ScaleY);
-
+                        PointF Left = new PointF(LeftX, LeftY);
                         float RightX = Convert.ToSingle(((CurrentValue - Nodedata[i, j + 1]) / (Nodedata[i + 1, j + 1] - Nodedata[i, j + 1]) + i) * DeltaX * ScaleX);
                         float RightY = Convert.ToSingle((j + 1) * DeltaY * ScaleY);
-
+                        PointF Right = new PointF(RightX, RightY);
                         float LowerX = Convert.ToSingle((i + 1) * DeltaX * ScaleX);
                         float LowerY = Convert.ToSingle(((CurrentValue - Nodedata[i + 1, j]) / (Nodedata[i + 1, j + 1] - Nodedata[i + 1, j]) + j) * DeltaY * ScaleY);
-
-
-                        //画图时反向XY坐标
+                        PointF Lower = new PointF(LowerX, LowerY);
+                        
                         switch (Cases)
                         {
                             case 0://0000
                                 break;
                             case 1://0001
-                                G.DrawLine(Pens.Black, UpperY, UpperX, RightY, RightX);//右上
+                                G.DrawLine(pen, Upper, Right);
                                 break;
                             case 2://0010
-                                G.DrawLine(Pens.Black, LowerY, LowerX, RightY, RightX);//右下
+                                G.DrawLine(pen, Lower, Right);
                                 break;
                             case 3://0011
-                                G.DrawLine(Pens.Black, LowerY, LowerX, UpperY, UpperX);//上下
+                                G.DrawLine(pen, Lower, Upper);
                                 break;
                             case 4://0100
-                                G.DrawLine(Pens.Black, LowerY, LowerX, LeftY, LeftX);//左下
+                                G.DrawLine(pen, Lower, Left);
                                 break;
                             case 5://0101
-                                
+                                G.DrawLine(pen, Left, Upper);
+                                G.DrawLine(pen, Right, Lower);
                                 break;
-                            case 6:
+                            case 6://0110
+                                G.DrawLine(pen, Left, Right);
                                 break;
-                            case 7:
+                            case 7://0111
+                                G.DrawLine(pen, Left, Upper);
                                 break;
-                            case 8:
+                            case 8://1000
+                                G.DrawLine(pen, Left, Upper);
                                 break;
-                            case 9:
+                            case 9://1001
+                                G.DrawLine(pen, Left, Right);
                                 break;
-                            case 10:
+                            case 10://1010
+                                G.DrawLine(pen, Left, Lower);
+                                G.DrawLine(pen, Right, Upper);
                                 break;
-                            case 11:
+                            case 11://1011
+                                G.DrawLine(pen, Lower, Left);
                                 break;
-                            case 12:
+                            case 12://1100
+                                G.DrawLine(pen, Lower, Upper);
                                 break;
-                            case 13:
+                            case 13://1101
+                                G.DrawLine(pen, Lower, Right);
                                 break;
-                            case 14:
+                            case 14://1110
+                                G.DrawLine(pen, Upper, Right);
                                 break;
-                            case 15:
+                            case 15://1111
+                                break;
+                            default:
                                 break;
                         }
-
-
-
-
-
                     }
             }
         }
