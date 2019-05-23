@@ -12,6 +12,8 @@ namespace CFD_program
         public double[,] Nodedata { set; get; }
         public double DeltaX { get; set; }
         public double DeltaY { get; set; }
+        public double StartX { get; set; }
+        public double StartY { get; set; }
         public double PlotSizeX { get; set; }
         public double PlotSizeY { get; set; }
         public double NumOfLine { get; set; }
@@ -22,7 +24,7 @@ namespace CFD_program
         private double ScaleY;
         private double Datamin;
         private double Datamax;
-        public Contour(double[,] Nodedata, double DeltaX, double DeltaY, double PlotSizeX, double PlotSizeY, Graphics G, int NumOfLine = 10)
+        public Contour(double[,] Nodedata, double DeltaX, double DeltaY, double StartX, double StartY, double PlotSizeX, double PlotSizeY, Graphics G, int NumOfLine = 10)
         {
             //实际坐标为x→ y↑
             //Nodedata的坐标都是x↓ y→
@@ -32,6 +34,8 @@ namespace CFD_program
             this.Nodedata = Nodedata;
             this.DeltaX = DeltaX;
             this.DeltaY = DeltaY;
+            this.StartX = StartX;
+            this.StartY = StartY;
             this.PlotSizeX = PlotSizeX;
             this.PlotSizeY = PlotSizeY;
             this.G = G;
@@ -67,17 +71,17 @@ namespace CFD_program
                         int LowerRight = Convert.ToInt32(Nodedata[i + 1, j + 1] > CurrentValue);
                         int Cases = UpperLeft * 8 + LowerLeft * 4 + LowerRight * 2 + UpperRight;
                         //线性插值
-                        float UpperX = Convert.ToSingle(i * DeltaX * ScaleX);
-                        float UpperY = Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i, j + 1] - Nodedata[i, j]) + j) * DeltaY * ScaleY);
+                        float UpperX = (float)StartX + Convert.ToSingle(i * DeltaX * ScaleX);
+                        float UpperY = (float)StartY + Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i, j + 1] - Nodedata[i, j]) + j) * DeltaY * ScaleY);
                         PointF Upper = new PointF(UpperX, UpperY);
-                        float LeftX = Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i + 1, j] - Nodedata[i, j]) + i) * DeltaX * ScaleX);
-                        float LeftY = Convert.ToSingle(j * DeltaY * ScaleY);
+                        float LeftX = (float)StartX + Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i + 1, j] - Nodedata[i, j]) + i) * DeltaX * ScaleX);
+                        float LeftY = (float)StartY + Convert.ToSingle(j * DeltaY * ScaleY);
                         PointF Left = new PointF(LeftX, LeftY);
-                        float RightX = Convert.ToSingle(((CurrentValue - Nodedata[i, j + 1]) / (Nodedata[i + 1, j + 1] - Nodedata[i, j + 1]) + i) * DeltaX * ScaleX);
-                        float RightY = Convert.ToSingle((j + 1) * DeltaY * ScaleY);
+                        float RightX = (float)StartX + Convert.ToSingle(((CurrentValue - Nodedata[i, j + 1]) / (Nodedata[i + 1, j + 1] - Nodedata[i, j + 1]) + i) * DeltaX * ScaleX);
+                        float RightY = (float)StartY + Convert.ToSingle((j + 1) * DeltaY * ScaleY);
                         PointF Right = new PointF(RightX, RightY);
-                        float LowerX = Convert.ToSingle((i + 1) * DeltaX * ScaleX);
-                        float LowerY = Convert.ToSingle(((CurrentValue - Nodedata[i + 1, j]) / (Nodedata[i + 1, j + 1] - Nodedata[i + 1, j]) + j) * DeltaY * ScaleY);
+                        float LowerX = (float)StartX + Convert.ToSingle((i + 1) * DeltaX * ScaleX);
+                        float LowerY = (float)StartY + Convert.ToSingle(((CurrentValue - Nodedata[i + 1, j]) / (Nodedata[i + 1, j + 1] - Nodedata[i + 1, j]) + j) * DeltaY * ScaleY);
                         PointF Lower = new PointF(LowerX, LowerY);
                         
                         switch (Cases)

@@ -33,9 +33,11 @@ namespace CFD_program
             double Scale = double.Parse(Scaleinput.Text);
             double PlotSizeX = cal.L * 200 * Scale;
             double PlotSizeY = cal.W * 200 * Scale;
+            double StartX = (1000 - PlotSizeX) / 2;
+            double StartY = (600 - PlotSizeY) / 2;
             
-            g.DrawRectangle(Pens.Black, new Rectangle(0, 0, (int)PlotSizeX, (int)PlotSizeY));
-            Contour con = new Contour(cal.Psi, cal.Dx, cal.Dy, PlotSizeX, PlotSizeY, g, int.Parse(Numinput.Text));
+            g.DrawRectangle(Pens.Black, new Rectangle((int)StartX, (int)StartY, (int)PlotSizeX, (int)PlotSizeY));
+            Contour con = new Contour(cal.Psi, cal.Dx, cal.Dy, StartX, StartY, PlotSizeX, PlotSizeY, g, int.Parse(Numinput.Text));
             con.DrawContourLines();
         }
 
@@ -43,21 +45,27 @@ namespace CFD_program
         {
             Calculator2 cal = new Calculator2
             {
-                H = 0.1,
-                U = 1,
-                L = 1
+                H = double.Parse(Hinput2.Text),
+                U = double.Parse(Uinput2.Text),
+                L = double.Parse(Linput2.Text)
             };
-            cal.SolveProblem();
+            if (cal.L / cal.H > 12)
+                MessageBox.Show("高斯-赛德尔迭代不收敛");
+            else
+            {
+                cal.SolveProblem();
 
-            Graphics g = pictureBox2.CreateGraphics();
-            g.Clear(Color.White);
-            double Scale = double.Parse(Scaleinput.Text);
-            double PlotSizeX = cal.L * 200 * Scale;
-            double PlotSizeY = cal.L * 200 * Scale;
+                Graphics g = pictureBox2.CreateGraphics();
+                g.Clear(Color.White);
+                double PlotSizeX = 580;
+                double PlotSizeY = 580;
+                double StartX = (1000 - PlotSizeX) / 2;
+                double StartY = (600 - PlotSizeY) / 2;
 
-            g.DrawRectangle(Pens.Black, new Rectangle(0, 0, (int)PlotSizeX, (int)PlotSizeY));
-            Contour con = new Contour(cal.Psi, cal.H, cal.H, PlotSizeX, PlotSizeY, g, 10);
-            con.DrawContourLines();
+                g.DrawRectangle(Pens.Black, new Rectangle((int)StartX, (int)StartY, (int)PlotSizeX, (int)PlotSizeY));
+                Contour con = new Contour(cal.Psi, cal.H, cal.H, StartX, StartY, PlotSizeX, PlotSizeY, g, int.Parse(Numinput2.Text));
+                con.DrawContourLines();
+            }
         }
     }
 }

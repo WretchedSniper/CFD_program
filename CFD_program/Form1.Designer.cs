@@ -45,17 +45,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Linput = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Numinput2 = new System.Windows.Forms.TextBox();
+            this.Uinput2 = new System.Windows.Forms.TextBox();
+            this.Hinput2 = new System.Windows.Forms.TextBox();
+            this.Linput2 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -75,7 +75,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(587, 25);
+            this.button1.Location = new System.Drawing.Point(732, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 25);
             this.button1.TabIndex = 0;
@@ -122,16 +122,16 @@
             // 
             // Scaleinput
             // 
-            this.Scaleinput.Location = new System.Drawing.Point(460, 42);
+            this.Scaleinput.Location = new System.Drawing.Point(605, 42);
             this.Scaleinput.Name = "Scaleinput";
             this.Scaleinput.Size = new System.Drawing.Size(100, 21);
             this.Scaleinput.TabIndex = 13;
-            this.Scaleinput.Text = "1.25";
+            this.Scaleinput.Text = "1.4";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(400, 45);
+            this.label6.Location = new System.Drawing.Point(545, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 12;
@@ -140,7 +140,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(400, 20);
+            this.label5.Location = new System.Drawing.Point(545, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 11;
@@ -148,7 +148,7 @@
             // 
             // Numinput
             // 
-            this.Numinput.Location = new System.Drawing.Point(460, 15);
+            this.Numinput.Location = new System.Drawing.Point(605, 15);
             this.Numinput.Name = "Numinput";
             this.Numinput.Size = new System.Drawing.Size(100, 21);
             this.Numinput.TabIndex = 10;
@@ -156,7 +156,7 @@
             // 
             // dLinput
             // 
-            this.dLinput.Location = new System.Drawing.Point(80, 42);
+            this.dLinput.Location = new System.Drawing.Point(225, 42);
             this.dLinput.Name = "dLinput";
             this.dLinput.Size = new System.Drawing.Size(100, 21);
             this.dLinput.TabIndex = 9;
@@ -164,7 +164,7 @@
             // 
             // dWinput
             // 
-            this.dWinput.Location = new System.Drawing.Point(275, 42);
+            this.dWinput.Location = new System.Drawing.Point(420, 42);
             this.dWinput.Name = "dWinput";
             this.dWinput.Size = new System.Drawing.Size(100, 21);
             this.dWinput.TabIndex = 8;
@@ -173,7 +173,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(200, 45);
+            this.label4.Location = new System.Drawing.Point(345, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 7;
@@ -183,7 +183,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 45);
+            this.label3.Location = new System.Drawing.Point(155, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 6;
@@ -191,7 +191,7 @@
             // 
             // Winput
             // 
-            this.Winput.Location = new System.Drawing.Point(275, 15);
+            this.Winput.Location = new System.Drawing.Point(420, 15);
             this.Winput.Name = "Winput";
             this.Winput.Size = new System.Drawing.Size(100, 21);
             this.Winput.TabIndex = 5;
@@ -200,7 +200,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(200, 20);
+            this.label2.Location = new System.Drawing.Point(345, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 4;
@@ -209,7 +209,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 20);
+            this.label1.Location = new System.Drawing.Point(155, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 3;
@@ -217,7 +217,7 @@
             // 
             // Linput
             // 
-            this.Linput.Location = new System.Drawing.Point(80, 15);
+            this.Linput.Location = new System.Drawing.Point(225, 15);
             this.Linput.Name = "Linput";
             this.Linput.Size = new System.Drawing.Size(100, 21);
             this.Linput.TabIndex = 2;
@@ -229,10 +229,10 @@
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.Numinput2);
+            this.tabPage2.Controls.Add(this.Uinput2);
+            this.tabPage2.Controls.Add(this.Hinput2);
+            this.tabPage2.Controls.Add(this.Linput2);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
@@ -243,6 +243,92 @@
             this.tabPage2.Text = "流函数-涡量解法";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(434, 45);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "流线条数";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(434, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "平板速度U";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(244, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 12);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "网格边长H";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(244, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 12);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "流场边长L";
+            // 
+            // Numinput2
+            // 
+            this.Numinput2.Location = new System.Drawing.Point(509, 42);
+            this.Numinput2.Name = "Numinput2";
+            this.Numinput2.Size = new System.Drawing.Size(100, 21);
+            this.Numinput2.TabIndex = 5;
+            this.Numinput2.Text = "10";
+            // 
+            // Uinput2
+            // 
+            this.Uinput2.Location = new System.Drawing.Point(509, 15);
+            this.Uinput2.Name = "Uinput2";
+            this.Uinput2.Size = new System.Drawing.Size(100, 21);
+            this.Uinput2.TabIndex = 4;
+            this.Uinput2.Text = "1";
+            // 
+            // Hinput2
+            // 
+            this.Hinput2.Location = new System.Drawing.Point(314, 42);
+            this.Hinput2.Name = "Hinput2";
+            this.Hinput2.Size = new System.Drawing.Size(100, 21);
+            this.Hinput2.TabIndex = 3;
+            this.Hinput2.Text = "0.1";
+            // 
+            // Linput2
+            // 
+            this.Linput2.Location = new System.Drawing.Point(314, 15);
+            this.Linput2.Name = "Linput2";
+            this.Linput2.Size = new System.Drawing.Size(100, 21);
+            this.Linput2.TabIndex = 2;
+            this.Linput2.Text = "1";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(12, 69);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1000, 600);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(661, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 25);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "计算并显示流线";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
@@ -252,92 +338,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "平板边界层";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(427, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 25);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "计算并显示流线";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(62, 119);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(814, 461);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(80, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "1";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(80, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "0.1";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(275, 15);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "1";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(275, 42);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "10";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 12);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "流场边长L";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 12);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "网格边长H";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(200, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 12);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "平板速度U";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(200, 45);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "流线条数";
             // 
             // Form1
             // 
@@ -350,6 +350,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "流体力学计算程序(By 张晓宇)";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -383,11 +384,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Uinput2;
+        private System.Windows.Forms.TextBox Hinput2;
+        private System.Windows.Forms.TextBox Linput2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Numinput2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
