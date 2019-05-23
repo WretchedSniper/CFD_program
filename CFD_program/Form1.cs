@@ -38,5 +38,26 @@ namespace CFD_program
             Contour con = new Contour(cal.Psi, cal.Dx, cal.Dy, PlotSizeX, PlotSizeY, g, int.Parse(Numinput.Text));
             con.DrawContourLines();
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Calculator2 cal = new Calculator2
+            {
+                H = 0.1,
+                U = 1,
+                L = 1
+            };
+            cal.SolveProblem();
+
+            Graphics g = pictureBox2.CreateGraphics();
+            g.Clear(Color.White);
+            double Scale = double.Parse(Scaleinput.Text);
+            double PlotSizeX = cal.L * 200 * Scale;
+            double PlotSizeY = cal.L * 200 * Scale;
+
+            g.DrawRectangle(Pens.Black, new Rectangle(0, 0, (int)PlotSizeX, (int)PlotSizeY));
+            Contour con = new Contour(cal.Psi, cal.H, cal.H, PlotSizeX, PlotSizeY, g, 10);
+            con.DrawContourLines();
+        }
     }
 }
