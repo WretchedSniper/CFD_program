@@ -52,9 +52,7 @@ namespace CFD_program
         {
             double CurrentValue = Datamin;
             double DeltaValue = (Datamax - Datamin) / (NumOfLine + 1);
-            double DeltaR = 0;
             double DeltaG = 255 / (NumOfLine - 1);
-            double DeltaB = 0;
             for (int k = 0; k < NumOfLine; ++k)
             {
                 Pen pen = new Pen(Color.FromArgb(255, Convert.ToInt32(k * DeltaG), 0));
@@ -138,5 +136,4 @@ namespace CFD_program
             }
         }
     }
-
 }
