@@ -22,7 +22,7 @@ namespace CFD_program
         private double ScaleY;
         private double Datamin;
         private double Datamax;
-        public Contour(double[,] Nodedata, double DeltaX, double DeltaY, double PlotSizeX, double PlotSizeY, Graphics G, double NumOfLine = 10)
+        public Contour(double[,] Nodedata, double DeltaX, double DeltaY, double PlotSizeX, double PlotSizeY, Graphics G, int NumOfLine = 10)
         {
             //实际坐标为x→ y↑
             //Nodedata的坐标都是x↓ y→
@@ -60,12 +60,13 @@ namespace CFD_program
                 for (int i = 0; i < Nodedata.GetLength(0) - 1; ++i)//节点左上角标号代表一个网格
                     for (int j = 0; j < Nodedata.GetLength(1) - 1; ++j)
                     {
+                        //判断四个角点与CurrentValue的大小关系
                         int UpperLeft = Convert.ToInt32(Nodedata[i, j] > CurrentValue);
                         int UpperRight = Convert.ToInt32(Nodedata[i, j + 1] > CurrentValue);
                         int LowerLeft = Convert.ToInt32(Nodedata[i + 1, j] > CurrentValue);
                         int LowerRight = Convert.ToInt32(Nodedata[i + 1, j + 1] > CurrentValue);
                         int Cases = UpperLeft * 8 + LowerLeft * 4 + LowerRight * 2 + UpperRight;
-
+                        //线性插值
                         float UpperX = Convert.ToSingle(i * DeltaX * ScaleX);
                         float UpperY = Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i, j + 1] - Nodedata[i, j]) + j) * DeltaY * ScaleY);
                         PointF Upper = new PointF(UpperX, UpperY);

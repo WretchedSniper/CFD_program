@@ -15,23 +15,27 @@ namespace CFD_program
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             Calculator1 cal = new Calculator1
             {
-                Dx = 0.025,
-                Dy = 0.025,
-                L = 3.5,
-                W = 2
+                Dx = double.Parse(dLinput.Text),
+                Dy = double.Parse(dWinput.Text),
+                L = double.Parse(Linput.Text),
+                W = double.Parse(Winput.Text)
             };
             cal.SolveProblem();
+
             Graphics g = pictureBox1.CreateGraphics();
-            Rectangle Border = new Rectangle(0, 0, 700, 400);
-            g.DrawRectangle(Pens.Black, Border);
-            Contour con = new Contour(cal.Psi, cal.Dx, cal.Dy, 700, 400, g, 20);
+            g.Clear(Color.White);
+            double Scale = double.Parse(Scaleinput.Text);
+            double PlotSizeX = cal.L * 200 * Scale;
+            double PlotSizeY = cal.W * 200 * Scale;
+            
+            g.DrawRectangle(Pens.Black, new Rectangle(0, 0, (int)PlotSizeX, (int)PlotSizeY));
+            Contour con = new Contour(cal.Psi, cal.Dx, cal.Dy, PlotSizeX, PlotSizeY, g, int.Parse(Numinput.Text));
             con.DrawContourLines();
         }
     }
