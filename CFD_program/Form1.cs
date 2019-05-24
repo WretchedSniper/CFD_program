@@ -67,5 +67,20 @@ namespace CFD_program
                 con.DrawContourLines();
             }
         }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            Calculator3 cal = new Calculator3() { Eta_max = 10, H = 0.01 };
+            cal.SolveProblem();
+
+            Graphics g = pictureBox3.CreateGraphics();
+            g.Clear(Color.White);
+            double PlotSizeX = 900;
+            double PlotSizeY = 500;
+            double StartX = (1000 - PlotSizeX) / 2;
+            double StartY = (600 - PlotSizeY) / 2;
+            g.DrawRectangle(Pens.Black, new Rectangle((int)StartX, (int)StartY, (int)PlotSizeX, (int)PlotSizeY));
+            cal.Figure(StartX, StartY, PlotSizeX, PlotSizeY, g);
+        }
     }
 }
