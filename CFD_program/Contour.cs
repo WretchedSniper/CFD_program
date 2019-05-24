@@ -72,18 +72,18 @@ namespace CFD_program
                         int Cases = UpperLeft * 8 + LowerLeft * 4 + LowerRight * 2 + UpperRight;
                         //线性插值
                         float UpperX = (float)StartX + Convert.ToSingle(i * DeltaX * ScaleX);
-                        float UpperY = (float)StartY + Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i, j + 1] - Nodedata[i, j]) + j) * DeltaY * ScaleY);
+                        float UpperY = (float)StartY + Convert.ToSingle(PlotSizeY - ((CurrentValue - Nodedata[i, j]) / (Nodedata[i, j + 1] - Nodedata[i, j]) + j) * DeltaY * ScaleY);
                         PointF Upper = new PointF(UpperX, UpperY);
                         float LeftX = (float)StartX + Convert.ToSingle(((CurrentValue - Nodedata[i, j]) / (Nodedata[i + 1, j] - Nodedata[i, j]) + i) * DeltaX * ScaleX);
-                        float LeftY = (float)StartY + Convert.ToSingle(j * DeltaY * ScaleY);
+                        float LeftY = (float)StartY + Convert.ToSingle(PlotSizeY - j * DeltaY * ScaleY);
                         PointF Left = new PointF(LeftX, LeftY);
                         float RightX = (float)StartX + Convert.ToSingle(((CurrentValue - Nodedata[i, j + 1]) / (Nodedata[i + 1, j + 1] - Nodedata[i, j + 1]) + i) * DeltaX * ScaleX);
-                        float RightY = (float)StartY + Convert.ToSingle((j + 1) * DeltaY * ScaleY);
+                        float RightY = (float)StartY + Convert.ToSingle(PlotSizeY - (j + 1) * DeltaY * ScaleY);
                         PointF Right = new PointF(RightX, RightY);
                         float LowerX = (float)StartX + Convert.ToSingle((i + 1) * DeltaX * ScaleX);
-                        float LowerY = (float)StartY + Convert.ToSingle(((CurrentValue - Nodedata[i + 1, j]) / (Nodedata[i + 1, j + 1] - Nodedata[i + 1, j]) + j) * DeltaY * ScaleY);
+                        float LowerY = (float)StartY + Convert.ToSingle(PlotSizeY - ((CurrentValue - Nodedata[i + 1, j]) / (Nodedata[i + 1, j + 1] - Nodedata[i + 1, j]) + j) * DeltaY * ScaleY);
                         PointF Lower = new PointF(LowerX, LowerY);
-                        
+
                         switch (Cases)
                         {
                             case 0://0000

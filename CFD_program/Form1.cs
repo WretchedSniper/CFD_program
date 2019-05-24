@@ -70,17 +70,21 @@ namespace CFD_program
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            Calculator3 cal = new Calculator3() { Eta_max = 10, H = 0.01 };
+            Calculator3 cal = new Calculator3() { Eta_max = double.Parse(EtamaxInput3.Text), H = double.Parse(Hinput3.Text) };
             cal.SolveProblem();
-
-            Graphics g = pictureBox3.CreateGraphics();
-            g.Clear(Color.White);
-            double PlotSizeX = 900;
-            double PlotSizeY = 500;
-            double StartX = (1000 - PlotSizeX) / 2;
-            double StartY = (600 - PlotSizeY) / 2;
-            g.DrawRectangle(Pens.Black, new Rectangle((int)StartX, (int)StartY, (int)PlotSizeX, (int)PlotSizeY));
-            cal.Figure(StartX, StartY, PlotSizeX, PlotSizeY, g);
+            if (cal.H >0.05)
+                MessageBox.Show("步长过大");
+            else
+            {
+                Graphics g = pictureBox3.CreateGraphics();
+                g.Clear(Color.White);
+                double PlotSizeX = 900;
+                double PlotSizeY = 500;
+                double StartX = (1000 - PlotSizeX) / 2;
+                double StartY = (600 - PlotSizeY) / 2;
+                g.DrawRectangle(Pens.Black, new Rectangle((int)StartX, (int)StartY, (int)PlotSizeX, (int)PlotSizeY));
+                cal.Figure(StartX, StartY, PlotSizeX, PlotSizeY, g);
+            }
         }
     }
 }
